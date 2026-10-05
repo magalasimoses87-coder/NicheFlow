@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="NicheFlow — a focused learning search engine that turns the web into a structured learning path." />
+  <title>NicheFlow — Learn anything through focused search</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand"><div class="brand-mark">N</div><div><strong>NicheFlow</strong><span>Learning Search</span></div></div>
+      <nav>
+        <button class="nav-btn active" data-view="discover">⌕ <span>Discover</span></button>
+        <button class="nav-btn" data-view="paths">▤ <span>My learning paths</span></button>
+        <button class="nav-btn" data-view="saved">♡ <span>Saved content</span></button>
+        <button class="nav-btn" data-view="history">↻ <span>History</span></button>
+      </nav>
+      <div class="sidebar-spacer"></div>
+      <div class="pro-card">
+        <div class="pill">PRO</div>
+        <h3>Unlock focused learning</h3>
+        <p>Unlimited saved paths, advanced filters and smart sequencing.</p>
+        <button id="upgradeSide">Upgrade</button>
+      </div>
+      <button class="user-card" id="accountBtn"><span class="avatar">U</span><span><strong>Guest learner</strong><small>Free account</small></span><span>⋯</span></button>
+    </aside>
+
+    <main>
+      <header class="topbar">
+        <button class="icon-btn mobile-only" id="menuBtn">☰</button>
+        <div class="breadcrumb">Discover <span>/</span> <strong id="activeNicheCrumb">All niches</strong></div>
+        <div class="top-actions"><button class="ghost" id="signinBtn">Sign in</button><button class="primary" id="upgradeBtn">Upgrade</button></div>
+      </header>
+
+      <section class="hero">
+        <div class="eyebrow">FOCUSED LEARNING SEARCH</div>
+        <h1>Search less. <span>Learn better.</span></h1>
+        <p>Choose one niche, lock your search to it, then find the best videos, articles, documents, audio and websites without unrelated noise.</p>
+
+        <div class="search-panel">
+          <div class="search-row">
+            <div class="search-box"><span>⌕</span><input id="searchInput" placeholder="What do you want to learn?" autocomplete="off"><button id="clearSearch" class="clear">×</button></div>
+            <select id="typeSelect" aria-label="Content type">
+              <option value="all">All content</option><option value="video">Videos</option><option value="audio">Audio</option><option value="document">Documents</option><option value="article">Articles</option><option value="website">Websites</option>
+            </select>
+            <select id="nicheSelect" aria-label="Niche">
+              <option value="all">Choose niche</option>
+              <option value="money">Make Money Online</option><option value="programming">Programming</option><option value="fitness">Fitness</option><option value="design">Design</option><option value="business">Business</option><option value="languages">Languages</option>
+            </select>
+            <button class="search-btn" id="searchBtn">Search</button>
+          </div>
+          <div class="niche-lock" id="nicheLock"><span class="lock-dot"></span><strong>No niche locked</strong><span>Selecting a niche prevents unrelated results.</span></div>
+        </div>
+
+        <div class="templates" id="templates">
+          <button data-template="What is ">What is…</button><button data-template="How to ">How to…</button><button data-template="How does ">How does…</button><button data-template="Best way to ">Best way to…</button><button data-template="Beginner guide to ">Beginner guide</button><button data-template="Step by step ">Step by step</button><button data-template="Examples of ">Examples</button><button data-template="Common mistakes in ">Common mistakes</button>
+        </div>
+
+        <div class="intent-row"><span>Show me:</span><button class="intent active" data-intent="learn">How to do it</button><button class="intent" data-intent="proof">How people do it</button><button class="intent" data-intent="get">How to get it</button><button class="intent" data-intent="understand">Understand it</button></div>
+      </section>
+
+      <section class="filters-wrap">
+        <button class="filter-toggle" id="filterToggle">⚙ Filters <span id="filterCount">0</span></button>
+        <div class="filter-bar" id="filterBar">
+          <label>Length<select id="lengthFilter"><option value="any">Any</option><option value="short">Short</option><option value="normal">Normal</option><option value="long">Long-form</option></select></label>
+          <label>Level<select id="levelFilter"><option value="any">Any level</option><option value="beginner">Beginner</option><option value="intermediate">Intermediate</option><option value="advanced">Advanced</option></select></label>
+          <label>Source<select id="sourceFilter"><option value="any">Any source</option><option>YouTube</option><option>TikTok</option><option>Web</option><option>PDF</option><option>Podcast</option></select></label>
+          <label>Sort<select id="sortFilter"><option value="recommended">Recommended</option><option value="newest">Newest</option><option value="shortest">Shortest first</option></select></label>
+          <label class="toggle-label"><input type="checkbox" id="freeOnly"><span class="switch"></span>Free only</label>
+        </div>
+      </section>
+
+      <section class="dashboard-grid">
+        <div class="article-column">
+          <div class="section-heading"><div><div class="eyebrow">GUIDED OVERVIEW</div><h2 id="overviewTitle">Choose a niche to start learning</h2></div><button class="ghost small" id="saveOverview">♡ Save</button></div>
+          <article class="overview-card" id="overviewCard">
+            <div class="overview-meta"><span class="tag">Learning map</span><span>8 min read</span></div>
+            <h3 id="overviewHeading">Your focused learning map appears here</h3>
+            <p id="overviewText">Pick a niche above. NicheFlow will organize results around its subtopics so that your searches stay relevant instead of drifting into unrelated content.</p>
+            <div class="topic-map" id="topicMap"></div>
+          </article>
+
+          <div class="section-heading content-head"><div><div class="eyebrow">DOCUMENT LIBRARY</div><h2>Guides & documents</h2></div><span class="muted" id="docCount"></span></div>
+          <div class="doc-grid" id="docGrid"></div>
+          <button class="load-more" id="moreDocs">Load more documents</button>
+        </div>
+
+        <aside class="video-column">
+          <div class="section-heading"><div><div class="eyebrow">WATCH NEXT</div><h2>Suggested videos</h2></div><button class="ghost small" id="courseMode">＋ Build path</button></div>
+          <div class="video-grid" id="videoGrid"></div>
+          <button class="load-more" id="moreVideos">Load more videos</button>
+        </aside>
+      </section>
+    </main>
+  </div>
+
+  <div class="modal-backdrop" id="modalBackdrop">
+    <div class="modal" id="subscriptionModal">
+      <button class="modal-close" id="modalClose">×</button>
+      <div class="eyebrow">NICHEFLOW PRO</div><h2>Turn search results into a learning system.</h2><p>Start with a monthly subscription. Cancel from your PayPal account at any time.</p>
+      <div class="price"><strong>$4.99</strong><span>/ month</span></div>
+      <ul><li>Unlimited learning paths</li><li>Advanced filters and source controls</li><li>Save documents, articles and videos</li><li>Course-style playlist sequencing</li><li>Priority future search integrations</li></ul>
+      <div id="paypal-button-container"><button class="paypal-demo" id="paypalDemo">Pay with PayPal</button></div>
+      <small class="modal-note">Demo button. Add your PayPal Client ID and Plan ID in <code>assets/app.js</code> before launch.</small>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="assets/app.js"></script>
+</body>
+</html>
