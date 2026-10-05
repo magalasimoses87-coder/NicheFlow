@@ -175,7 +175,7 @@ app.post('/api/subscriptions/webhook', async (req, res) => {
 });
 
 app.use(express.static(ROOT, { extensions: ['html'] }));
-app.get('*', (req, res) => res.sendFile(path.join(ROOT, 'index.html')));
+app.get(/.*/, (req, res) => res.sendFile(path.join(ROOT, 'index.html')));
 
 initDb().then(() => {
   app.listen(PORT, HOST, () => console.log(`NicheFlow listening on http://${HOST}:${PORT}`));
