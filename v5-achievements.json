@@ -1,0 +1,7 @@
+{
+ "achievements":[
+  {"name":"First Lesson","reward":50},
+  {"name":"7 Day Streak","reward":100},
+  {"name":"Skill Builder","reward":250}
+ ]
+}

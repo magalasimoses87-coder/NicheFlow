@@ -1,0 +1,10 @@
+{
+  "skills": [
+    {"name":"Knowledge","levels":["Beginner","Intermediate","Advanced","Master"]},
+    {"name":"Discipline","levels":["Beginner","Intermediate","Advanced","Master"]},
+    {"name":"Technology","levels":["Beginner","Intermediate","Advanced","Master"]},
+    {"name":"Money","levels":["Beginner","Intermediate","Advanced","Master"]},
+    {"name":"Communication","levels":["Beginner","Intermediate","Advanced","Master"]},
+    {"name":"Health","levels":["Beginner","Intermediate","Advanced","Master"]}
+  ]
+}

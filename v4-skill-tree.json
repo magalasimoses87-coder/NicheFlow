@@ -1,0 +1,16 @@
+{
+  "skills": {
+    "Technology": {
+      "current": "Intermediate",
+      "unlocked": ["HTML", "CSS", "JavaScript"]
+    },
+    "Money": {
+      "current": "Beginner",
+      "unlocked": ["Budgeting"]
+    },
+    "Knowledge": {
+      "current": "Beginner",
+      "unlocked": ["Reading"]
+    }
+  }
+}

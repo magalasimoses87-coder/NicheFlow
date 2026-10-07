@@ -1,0 +1,35 @@
+CREATE TABLE IF NOT EXISTS skills (
+ id SERIAL PRIMARY KEY,
+ name TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS user_skills (
+ id SERIAL PRIMARY KEY,
+ user_id INTEGER NOT NULL,
+ skill_id INTEGER NOT NULL,
+ level TEXT DEFAULT 'Beginner',
+ xp INTEGER DEFAULT 0
+);
+
+CREATE TABLE IF NOT EXISTS quests (
+ id SERIAL PRIMARY KEY,
+ title TEXT NOT NULL,
+ reward_xp INTEGER DEFAULT 10
+);
+
+CREATE TABLE IF NOT EXISTS streaks (
+ user_id INTEGER PRIMARY KEY,
+ current_streak INTEGER DEFAULT 0,
+ longest_streak INTEGER DEFAULT 0
+);
+
+CREATE TABLE IF NOT EXISTS achievements (
+ id SERIAL PRIMARY KEY,
+ name TEXT NOT NULL,
+ description TEXT
+);
+
+CREATE TABLE IF NOT EXISTS user_achievements (
+ user_id INTEGER NOT NULL,
+ achievement_id INTEGER NOT NULL
+);

@@ -1,0 +1,27 @@
+CREATE TABLE IF NOT EXISTS user_profiles (
+ id SERIAL PRIMARY KEY,
+ user_id INTEGER NOT NULL,
+ username TEXT,
+ xp INTEGER DEFAULT 0,
+ level INTEGER DEFAULT 1
+);
+
+CREATE TABLE IF NOT EXISTS learning_paths (
+ id SERIAL PRIMARY KEY,
+ title TEXT NOT NULL,
+ category TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS lessons (
+ id SERIAL PRIMARY KEY,
+ path_id INTEGER REFERENCES learning_paths(id),
+ title TEXT NOT NULL,
+ xp_reward INTEGER DEFAULT 50
+);
+
+CREATE TABLE IF NOT EXISTS subscriptions (
+ id SERIAL PRIMARY KEY,
+ user_id INTEGER NOT NULL,
+ paypal_id TEXT,
+ status TEXT DEFAULT 'free'
+);
